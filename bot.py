@@ -19,6 +19,8 @@ logging.basicConfig(
     format="%(asctime)s - %(levelname)s - %(message)s",
     level=logging.INFO,
 )
+# httpx logs full request URLs, which include the bot token
+logging.getLogger("httpx").setLevel(logging.WARNING)
 log = logging.getLogger("image-bot")
 
 TOKEN = os.environ.get("TOKEN")
